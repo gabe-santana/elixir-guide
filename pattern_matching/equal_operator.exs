@@ -27,3 +27,21 @@ b
 
 c
 42
+
+#A pattern match error will occur if the sides can’t be matched, like:
+{a, b, c} = {:hello, "world"}
+
+#** (MatchError) no match of right hand side value: {:hello, "world"}
+
+#Pattern match on lists
+
+[a,b,c] = [1,2,3]
+
+#A list also supports matching on its own head and tail:
+
+[head | tail] = [1,2,3]
+
+#Similar to the hd/1 and tl/1 functions, we can’t match an empty list with a head and tail pattern:
+[head | tail] = []
+
+#** (MatchError) no match of right hand side value: []
